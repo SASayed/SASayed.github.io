@@ -7,6 +7,176 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+	*, *:before, *:after {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
+	.masthead {
+		position: relative;
+		border-bottom: 1px solid #f2f3f3;
+		-webkit-animation: intro 0.3s both;
+		animation: intro 0.3s both;
+		-webkit-animation-delay: 0.15s;
+		animation-delay: 0.15s;
+		z-index: 20;
+	}
+	
+	@media (min-width: 80em) {
+		.masthead__inner-wrap {
+			max-width: 1280px;
+		}
+	}
+	
+	.masthead__inner-wrap {
+		max-width: 925px;
+		margin-left: auto;
+		margin-right: auto;
+		clear: both;
+		padding: 1em 1em 1em;
+		font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+	}
+	
+	.masthead__inner-wrap nav {
+		z-index: 10;
+	}
+	
+	.greedy-nav {
+		position: relative;
+		min-width: 250px;
+		background: #fff;
+	}
+	
+	article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section {
+		display: block;
+	}
+	
+	.greedy-nav button {
+		position: absolute;
+		height: 100%;
+		right: 0;
+		padding: 0 0.5rem;
+		border: 0;
+		outline: none;
+		background-color: #7a8288;
+		color: #fff;
+		cursor: pointer;
+	}
+
+	.hidden {
+		display: none;
+		visibility: hidden;
+	}
+	
+	input, button, select, textarea {
+		box-sizing: border-box;
+		font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+	}
+	
+	label, input, button, select, textarea {
+		vertical-align: baseline;
+	}
+	
+	label, select, button, input[type="button"], input[type="reset"], input[type="submit"], input[type="radio"], input[type="checkbox"] {
+		cursor: pointer;
+	}
+	
+	button, html input[type="button"], input[type="reset"], input[type="submit"] {
+		-webkit-appearance: button;
+		cursor: pointer;
+	}
+	
+	button, input {
+		line-height: normal;
+	}
+	
+	button, input, select, textarea {
+		margin: 0;
+		font-size: 100%;
+		vertical-align: middle;
+	}
+	
+	.greedy-nav .visible-links {
+		display: table;
+	}
+	
+	.masthead__menu ul {
+		margin: 0;
+		padding: 0;
+		clear: both;
+		list-style-type: none;
+	}
+	
+	nav ul {
+		margin: 0;
+		padding: 0;
+	}
+	
+	p, pre, blockquote, ul, ol, dl, figure, table, fieldset {
+		orphans: 3;
+		widows: 3;
+	}
+	
+	.greedy-nav .visible-links li:first-child {
+		font-weight: bold;
+	}
+
+	.greedy-nav .visible-links li {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	
+	.masthead__menu-item--lg {
+		padding-right: 2em;
+		font-weight: 700;
+	}
+	
+	.masthead__menu-item {
+		display: block;
+		list-style-type: none;
+		white-space: nowrap;
+	}
+	
+	nav ul li, nav ol li {
+		margin-bottom: 0;
+	}
+	
+	nav li {
+		list-style: none;
+	}
+	
+	ul li, ol li {
+		margin-bottom: 0.5em;
+	}
+	
+	.greedy-nav .hidden-links {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		margin-top: 15px;
+		padding: 5px;
+		border: 1px solid #f2f3f3;
+		border-radius: 4px;
+		background: #fff;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+	}
+	
+	nav ul {
+		margin: 0;
+		padding: 0;
+	}
+	
+	p, pre, blockquote, ul, ol, dl, figure, table, fieldset {
+		orphans: 3;
+		widows: 3;
+	}
+	*, *:before, *:after {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
@@ -158,15 +328,25 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Sayed Ahmed Sayed</div>
-    <nav>
-      <a href="#">Publications</a>
-      <a href="#">Research</a>
-      <a href="#">Teaching</a>
-      <a href="#">CV</a>
-    </nav>
-  </header>
+  <div class="masthead">
+	<div class="masthead__inner-wrap">
+		<div class="masthead__menu">
+			<nav id="site-nav" class="greedy-nav"> 
+				<button class="hidden" count="0">
+					<div class="navicon"></div>
+				</button>
+				<ul class="visible-links">
+					<li class="masthead__menu-item masthead__menu-item--lg"><a href="https://armitakar.github.io/">Sayed Ahmed Sayed</a></li>
+					<li class="masthead__menu-item"><a href="https://armitakar.github.io/publications/">Publications</a></li>
+					<li class="masthead__menu-item"><a href="https://armitakar.github.io/research/">Research</a></li>
+					<li class="masthead__menu-item"><a href="https://armitakar.github.io/teaching/">Teaching</a></li>
+					<li class="masthead__menu-item"><a href="https://armitakar.github.io/cv/">CV</a></li>
+				</ul>
+				<ul class="hidden-links hidden"></ul>
+			</nav>
+		</div>
+	</div>
+  </div>
 
   <div class="container">
     <div class="sidebar">
