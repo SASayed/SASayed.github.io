@@ -108,6 +108,39 @@
 		list-style-type: none;
 	}
 	
+	nav {
+      display: flex;
+      gap: 40px;
+    }
+    
+    nav a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 16px;
+      padding-bottom: 4px;
+      position: relative;
+    }
+    
+    nav a:hover {
+      color: #333;
+    }
+    
+    nav a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #555;
+      transition: width 0.3s;
+    }
+    
+    nav a:hover:after {
+      width: 100%;
+    }
+	
 	nav ul {
 		margin: 0;
 		padding: 0;
