@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sayed Ahmed</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Sayed Ahmed Sayed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -12,88 +13,141 @@
       padding: 0;
       background-color: #f9f9f9;
       color: #333;
+      line-height: 1.6;
     }
+    
     header {
       background-color: #fff;
-      padding: 20px 40px;
+      padding: 15px 40px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    nav a {
-      margin: 0 15px;
-      color: #444;
-      text-decoration: none;
+    
+    .logo {
+      font-size: 18px;
       font-weight: 600;
     }
-    .container {
+    
+    nav {
       display: flex;
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .sidebar {
-      width: 200px;
-      background-color: #f4f4f4;
-      padding: 20px;
-      display: flex;
-      flex-direction: column; /* This makes items stack vertically */
-      height: 100vh; /* Full height of screen */
     }
     
-    .sidebar a {
-      padding: 10px;
-      margin-bottom: 10px;
+    nav a {
+      margin: 0 15px;
+      color: #555;
       text-decoration: none;
-      color: #333;
-      background-color: #ddd;
-      border-radius: 4px;
+      font-weight: 500;
+    }
+    
+    nav a:hover {
+      color: #000;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 40px;
+    }
+    
+    .sidebar {
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .profile-img {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    
+    .sidebar h2 {
+      margin: 10px 0 5px;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .sidebar .position {
+      text-align: center;
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 5px;
+    }
+    
+    .sidebar .location {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #666;
+      margin: 5px 0 15px;
+    }
+    
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 8px;
+    }
+    
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      text-decoration: none;
+      color: #444;
+      font-size: 14px;
+    }
+    
+    .contact-links a i {
+      width: 20px;
+      margin-right: 8px;
       text-align: center;
     }
     
-    .sidebar a:hover {
-      background-color: #bbb;
-    }
-    
-    .sidebar img {
-      border-radius: 50%;
-      width: 150px;
-    }
-    .sidebar h2 {
-      margin: 10px 0 5px;
-    }
-    .sidebar p {
-      font-size: 14px;
-      color: #666;
-    }
-    .sidebar .icons {
-      margin: 0 5px;
-      color: #333;
-      text-decoration: none;
-    }
     .content {
       flex: 1;
-      padding-left: 40px;
     }
+    
     .content h1 {
+      font-size: 32px;
       margin-top: 0;
+      margin-bottom: 20px;
+      color: #333;
     }
+    
     .content p {
-      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 15px;
     }
-    .content em {
-      font-style: italic;
-    }
-    .content strong {
+    
+    .research-question {
       font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .highlight {
+      font-style: italic;
+      text-decoration: underline;
+    }
+    
+    hr {
+      margin: 30px 0;
+      border: none;
+      border-top: 1px solid #eee;
     }
   </style>
 </head>
 <body>
   <header>
-    <div><strong>Sayed Ahmed Sayed</strong></div>
+    <div class="logo">Sayed Ahmed Sayed</div>
     <nav>
       <a href="#">Publications</a>
       <a href="#">Research</a>
@@ -104,39 +158,33 @@
 
   <div class="container">
     <div class="sidebar">
-      <img src="Sayed.jpg" alt="Profile">
+      <img src="Sayed.jpg" alt="Profile photo of Sayed Ahmed" class="profile-img">
       <h2>Sayed Ahmed Sayed</h2>
-      <p>Big Data & AI-driven Geospatial Solutions<br>Environment Horizons Co.</p>
-      <p>📍 Riyadh, Riyadh, Sauid Arabia</p>
-      <div class="icons">
-        <a href="mailto:se.sayedahmed@gmail.com"✉️ Email</a>
-        <a href="https://www.researchgate.net/profile/Sayed-Sayed-14">📄 ResearchGate</a>
-        <a href="https://www.linkedin.com/in/sayedahmedgis/">🔗 LinkedIn</a>
-        <a href="https://github.com/SASayed">💻 GitHub</a>
-        <a href="https://scholar.google.com/citations?user=-fKJn5AAAAAJ&hl=en">📚 Google Scholar</a>
-        <a href="https://orcid.org/0000-0003-0513-9434">🆔 ORCID</a>
+      <p class="position">Big Data & AI-driven Geospatial Solutions<br>Environment Horizons Co.</p>
+      <p class="location"><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</p>
+      
+      <div class="contact-links">
+        <a href="mailto:se.sayedahmed@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://www.researchgate.net/profile/Sayed-Sayed-14"><i class="fab fa-researchgate"></i> ResearchGate</a>
+        <a href="https://www.linkedin.com/in/sayedahmedgis/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/SASayed"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.com/citations?user=-fKJn5AAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+        <a href="https://orcid.org/0000-0003-0513-9434"><i class="fas fa-id-card"></i> ORCID</a>
       </div>
     </div>
 
     <div class="content">
       <h1>About me</h1>
+      
       <p>Welcome! I am a senior GIS developer and researcher focusing on real-time traffic flow prediction, mobility analytics, and smart urban infrastructure using big data frameworks, machine learning, and geographic information systems (GIS). I am currently a Ph.D. candidate in Computer Science with a research focus on transportation systems, and I hold a Master's and Bachelor's degree in the same field.</p>
 
       <p>My work bridges computer science and geospatial technology to address challenges in mobility, congestion, and infrastructure planning. I am particularly interested in integrating machine learning with big data platforms such as Apache Spark and Kafka to enable real-time traffic predictions that inform responsive and equitable urban transportation planning. My research is further enriched by the integration of GIS to spatially analyze and visualize mobility trends, bottlenecks, and environmental impacts of urban movement.</p>
 
-      <p><strong>How can we predict and manage urban traffic more effectively?</strong><br>
-      I design and implement machine learning models that analyze traffic data streams from multiple junctions using big data platforms. My framework, which integrates Apache Kafka with Apache Spark, enables real-time processing and forecasting of traffic conditions based on vehicle counts and time-series patterns. This work supports decision-making for traffic control systems and urban mobility planners, offering predictive insights into congestion hotspots and mobility flow.</p>
+      <p class="research-question">How can we predict and manage urban traffic more effectively?</p>
+      <p>I design and implement machine learning models that analyze traffic data streams from multiple junctions using big data platforms. My framework, which integrates Apache Kafka with Apache Spark, enables real-time processing and forecasting of traffic conditions based on vehicle counts and time-series patterns. This work supports decision-making for traffic control systems and urban mobility planners, offering predictive insights into congestion hotspots and mobility flow.</p>
 
-      <p><strong>How can real-time data improve mobility equity and accessibility?</strong><br>
-      By combining spatial data with real-time analytics, I examine how traffic congestion and mobility inefficiencies impact access to essential services—especially for marginalized communities. I aim to develop GIS-based solutions that help identify service gaps, inform routing strategies, and promote equitable infrastructure investments across different socio-economic regions.</p>
+      <p class="research-question">How can real-time data improve mobility equity and accessibility?</p>
+      <p>By combining spatial data with real-time analytics, I examine how traffic congestion and mobility inefficiencies impact access to essential services—especially for marginalized communities. I aim to develop GIS-based solutions that help identify service gaps, inform routing strategies, and promote equitable infrastructure investments across different socio-economic regions.</p>
 
-      <p><strong>How can smart systems support sustainable and healthy cities?</strong><br>
-      I evaluate the integration of real-time mobility data with environmental indicators—such as air quality and noise levels—to study how traffic patterns correlate with exposure to pollution. My research contributes to smarter urban design by using data-driven models to optimize travel paths, reduce emissions, and foster healthier living environments through improved traffic management and land use planning.</p>
-
-      <p>My contributions include the implementation of machine learning pipelines in PySpark, development of integrated GIS databases for infrastructure analysis, and the deployment of predictive systems using open-source tools. I am also actively involved in creating educational materials and GIS training programs for non-specialists.</p>
-
-      <p>I am currently preparing to publish a research article based on the practical part of my Ph.D., with prior publications including review papers in Scopus-indexed journals. My work aligns with a commitment to sustainable development, inclusive mobility, and the advancement of open-source geospatial technologies.</p>
-    </div>
-  </div>
-</body>
-</html>
+      <p class="research-question">How can smart systems support sustainable and healthy cities?</p>
+      <p
