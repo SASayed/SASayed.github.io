@@ -33,10 +33,30 @@
       margin: 40px auto;
       padding: 0 20px;
     }
+
     .sidebar {
-      width: 300px;
+      width: 200px;
+      background-color: #f4f4f4;
+      padding: 20px;
+      display: flex;
+      flex-direction: column; /* This makes items stack vertically */
+      height: 100vh; /* Full height of screen */
+    }
+    
+    .sidebar a {
+      padding: 10px;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #333;
+      background-color: #ddd;
+      border-radius: 4px;
       text-align: center;
     }
+    
+    .sidebar a:hover {
+      background-color: #bbb;
+    }
+    
     .sidebar img {
       border-radius: 50%;
       width: 150px;
@@ -48,7 +68,7 @@
       font-size: 14px;
       color: #666;
     }
-    .sidebar .icons a {
+    .sidebar .icons {
       margin: 0 5px;
       color: #333;
       text-decoration: none;
