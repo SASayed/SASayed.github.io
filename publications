@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: #fff;
+      padding: 20px 100px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f0f0f0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 80px;
+    }
+    
+    .logo {
+      font-size: 18px;
+      font-weight: 500;
+      color: #777;
+      margin-right: 100px;
+    }
+    
+    nav {
+      display: flex;
+      gap: 40px;
+    }
+    
+    nav a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 16px;
+      padding-bottom: 4px;
+      position: relative;
+    }
+    
+    nav a:hover {
+      color: #333;
+    }
+    
+    nav a.active {
+      color: #333;
+      font-weight: 500;
+    }
+    
+    nav a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #555;
+      transition: width 0.3s;
+    }
+    
+    nav a:hover:after, nav a.active:after {
+      width: 100%;
+    }
+    
+    /* Main content container */
+    .main-container {
+      display: flex;
+      margin-top: 80px; /* Header height */
+      min-height: calc(100vh - 140px); /* Viewport height minus header and footer */
+      position: relative;
+    }
+    
+    /* Sidebar styles */
+    .sidebar {
+      width: 280px;
+      padding: 40px 20px;
+      background-color: transparent;
+      position: fixed;
+      top: 80px; /* Header height */
+      bottom: 60px; /* Footer approximate height */
+      left: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-right: 1px solid #f0f0f0;
+    }
+    
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    
+    .sidebar h2 {
+      margin: 10px 0 5px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 22px;
+      color: #444;
+    }
+    
+    .sidebar .position {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    
+    .sidebar .location {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #666;
+      margin: 5px 0 20px;
+    }
+    
+    .location i {
+      margin-right: 5px;
+    }
+    
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 12px;
+    }
+    
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      padding: 6px 0;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
+    
+    .contact-links a:hover {
+      color: #000;
+    }
+    
+    .contact-links a i {
+      width: 20px;
+      margin-right: 10px;
+      text-align: center;
+    }
+    
+    /* Content styles */
+    .content-wrapper {
+      margin-left: 260px; /* Reduced from 280px to decrease space */
+      padding: 40px 30px 40px 10px; /* Reduced left padding */
+      flex: 1;
+    }
+    
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .content h1 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #444;
+      font-weight: 600;
+    }
+    
+    /* Publications specific styling */
+    .publications-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .publication-item {
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .publication-item:last-child {
+      border-bottom: none;
+    }
+    
+    .publication-text {
+      text-align: justify;
+      font-size: 15px;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .publication-text a {
+      color: #4b6cb7;
+      text-decoration: none;
+    }
+    
+    .publication-text a:hover {
+      text-decoration: underline;
+    }
+    
+    .publication-year {
+      display: inline-block;
+      font-weight: 600;
+      color: #4b6cb7;
+      margin-right: 5px;
+    }
+    
+    /* Footer styles */
+    footer {
+      background-color: #f5f5f5;
+      padding: 20px 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      width: 100%;
+      border-top: 1px solid #e0e0e0;
+      position: relative;
+      left: 0;
+    }
+    
+    .footer-links {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+    
+    .copyright {
+      font-size: 13px;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 1024px) {
+      header {
+        padding: 15px 40px;
+      }
+      
+      .logo {
+        margin-right: 60px;
+      }
+      
+      nav {
+        gap: 30px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+      
+      .sidebar {
+        display: none;
+      }
+      
+      .content-wrapper {
+        margin-left: 0;
+        padding: 30px 20px;
+      }
+      
+      footer {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Sayed Ahmed Sayed</div>
+    <nav>
+      <a href="#" class="active">Publications</a>
+      <a href="#">Research</a>
+      <a href="#">Teaching</a>
+      <a href="#">CV</a>
+    </nav>
+  </header>
+
+  <!-- Main container with sidebar and content -->
+  <div class="main-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <img src="Sayed.jpg" alt="Sayed Ahmed" class="profile-img">
+      <h2>Sayed Ahmed</h2>
+      <p class="position">Big Data & AI-driven Geospatial Solutions<br>Environment Horizons Co.</p>
+      <p class="location"><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</p>
+      
+      <div class="contact-links">
+        <a href="mailto:se.sayedahmed@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://www.researchgate.net/profile/Sayed-Sayed-14"><i class="fab fa-researchgate"></i> ResearchGate</a>
+        <a href="https://www.linkedin.com/in/sayedahmedgis/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/SASayed"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.com/citations?user=-fKJn5AAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+        <a href="https://orcid.org/0000-0003-0513-9434"><i class="fas fa-id-card"></i> ORCID</a>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+      <div class="content">
+        <h1>Publications</h1>
+        
+        <ul class="publications-list">
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2025</span> Sayed, S.A., Abdel-Hamid, Y. & Hefny, H.A. Intelligent Traffic Flow Prediction Using Deep Learning Techniques: A Comparative Study. SN COMPUT. SCI. 6, 60 (2025).
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2024</span> Alkot Mohamed, R., & Ahmed Sayed, S. (2024). Programming an Interactive Map to Enhance Clients' Participation in Site Selection of E-Marketing in Cairo and Giza Governorates: Egypt. IntechOpen. doi: 10.5772/intechopen.1002489.
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2023</span> Traffic Flow Prediction Using Big Data and Geographic Information Systems: A Survey of Data Sources, Frameworks, Challenges, and Opportunities, International Journal of Computing and Digital Systems, 08/01/2023, journal-article, 10.12785/ijcds/140147, 2210-142X
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2023</span> Amin, M. E., Abdelfattah, M. A., Mohamed, E. S., Nabil, M., Belal, A. A., Ahmed, S., ... & Mahmoud, A. G. (2023). Sentinel-2 Satellite Imagery for Retrieving and Mapping Soil Properties Using Machine Learning. In: Gad, A.A., Elfiky, D., Negm, A., Elbeih, S. (eds) Applications of Remote Sensing and GIS Based on an Innovative Vision. ICRSSSA 2022. Springer Proceedings in Earth and Environmental Sciences. Springer, Cham.
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2023</span> A comparative study of big data use in Egyptian agriculture, Journal of Electrical Systems and Information Technology, 04/04/2023, journal-article, 10.1186/s43067-023-00090-5
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2023</span> Rewhel, E. M., Li, J., Hamed, A. A., Keshk, H. M., Mahmoud, A. S., Sayed, S. A., ... & Helmy, A. K. (2023). Deep Learning Methods Used in Remote Sensing Images: A Review. Journal of Environmental & Earth Sciences, 5(1), 33-64.
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2023</span> Artificial intelligence-based traffic flow prediction: a comprehensive review, Journal of Electrical Systems and Information Technology, 03/09/2023, journal-article, 10.1186/s43067-023-00081-6
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2023</span> Investigation on the use of ensemble learning and big data in crop identification, Heliyon, 02/01/2023, journal-article, 10.1016/j.heliyon.2023.e13339, 2405-8440
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2022</span> PROGRAMMING AN INTERACTIVE MAP TO ENHANCE CLIENTS' PARTICIPATION IN SITE SELECTION OF E-MARKETING, IN CAIRO AND GIZA GOVERNORATES- EGYPT, Bulletin de la Société de Géographie d'Egypte, 12/01/2022, journal-article, 10.21608/bsge.2022.151512.1011, 2735-3036
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2022</span> Enhancing Hybrid Learning using Open Source GIS-Based Maps Archiving System, The Egyptian Journal of Remote Sensing and Space Science, 12/01/2022, journal-article, 10.1016/j.ejrs.2022.07.003, 1110-9823
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2022</span> A Conceptual Framework for using Big Data in Egyptian Agriculture, International Journal of Advanced Computer Science and Applications, 2022, journal-article, 10.14569/IJACSA.2022.0130322, 2-s2.0-85129759698, 21565570 2158107X
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2021</span> Satellite Imagery Super-Resolution Using Squeeze-and-Excitation-Based GAN, International Journal of Aeronautical and Space Sciences, 12/01/2021, journal-article, 10.1007/s42405-021-00396-6
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2021</span> Hyperspectral change detection based on modification of UNet neural networks, Journal of Applied Remote Sensing, 2021, journal-article, 10.1117/1.JRS.15.028505, 2-s2.0-85109036868, 19313195
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2020</span> A WebGIS Decision Support System for Wadi El Natrun Rural Land Management, Proceedings - 2020 21st International Arab Conference on Information Technology, ACIT 2020, 2020, conference-paper, 10.1109/ACIT50332.2020.9300106, 2-s2.0-85099693696
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2020</span> Learning to hash with convolutional network for multi-label remote sensing image retrieval, International Journal of Intelligent Engineering and Systems, 2020, journal-article, 10.22266/ijies2020.1031.47, 2-s2.0-85090392101, 21853118 2185310X
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2018</span> Mobile-based routes network analysis for emergency response using an enhanced Dijkstra's algorithm and AHP, International Journal of Intelligent Engineering and Systems, 2018, journal-article, 10.22266/IJIES2018.1231.25, 2-s2.0-85062067082, 21853118 2185310X
+            </p>
+          </li>
+          
+          <li class="publication-item">
+            <p class="publication-text">
+              <span class="publication-year">2017</span> GIS-based network analysis for the roads network of the Greater Cairo area, CEUR Workshop Proceedings, 2017, conference-paper, 2-s2.0-85050995956, 16130073.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Sitemap</a>
+      <a href="https://github.com/SASayed"><i class="fab fa-github"></i> GitHub</a>
+      <a href="#"><i class="fas fa-rss"></i> Feed</a>
+    </div>
+    <div class="copyright">
+      © 2025 Sayed Ahmed. Powered by Jekyll & AcademicPages.
+    </div>
+  </footer>
+</body>
+</html>
