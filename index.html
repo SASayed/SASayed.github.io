@@ -7,108 +7,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-	*, *:before, *:after {
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-	}
-	
-	.masthead {
-		position: relative;
-		border-bottom: 1px solid #f2f3f3;
-		-webkit-animation: intro 0.3s both;
-		animation: intro 0.3s both;
-		-webkit-animation-delay: 0.15s;
-		animation-delay: 0.15s;
-		z-index: 20;
-	}
-	
-	@media (min-width: 80em) {
-		.masthead__inner-wrap {
-			max-width: 1280px;
-		}
-	}
-	
-	.masthead__inner-wrap {
-		max-width: 925px;
-		margin-left: auto;
-		margin-right: auto;
-		clear: both;
-		padding: 1em 1em 1em;
-		font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-	}
-	
-	.masthead__inner-wrap nav {
-		z-index: 10;
-	}
-	
-	.greedy-nav {
-		position: relative;
-		min-width: 250px;
-		background: #fff;
-	}
-	
-	article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section {
-		display: block;
-	}
-	
-	.greedy-nav button {
-		position: absolute;
-		height: 100%;
-		right: 0;
-		padding: 0 0.5rem;
-		border: 0;
-		outline: none;
-		background-color: #7a8288;
-		color: #fff;
-		cursor: pointer;
-	}
-
-	.hidden {
-		display: none;
-		visibility: hidden;
-	}
-	
-	input, button, select, textarea {
-		box-sizing: border-box;
-		font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-	}
-	
-	label, input, button, select, textarea {
-		vertical-align: baseline;
-	}
-	
-	label, select, button, input[type="button"], input[type="reset"], input[type="submit"], input[type="radio"], input[type="checkbox"] {
-		cursor: pointer;
-	}
-	
-	button, html input[type="button"], input[type="reset"], input[type="submit"] {
-		-webkit-appearance: button;
-		cursor: pointer;
-	}
-	
-	button, input {
-		line-height: normal;
-	}
-	
-	button, input, select, textarea {
-		margin: 0;
-		font-size: 100%;
-		vertical-align: middle;
-	}
-	
-	.greedy-nav .visible-links {
-		display: table;
-	}
-	
-	.masthead__menu ul {
-		margin: 0;
-		padding: 0;
-		clear: both;
-		list-style-type: none;
-	}
-	
-	nav {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: #fff;
+      padding: 20px 100px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f0f0f0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 80px;
+    }
+    
+    .logo {
+      font-size: 18px;
+      font-weight: 500;
+      color: #777;
+      margin-right: 100px;
+    }
+    
+    nav {
       display: flex;
       gap: 40px;
     }
@@ -140,118 +76,29 @@
     nav a:hover:after {
       width: 100%;
     }
-	
-	nav ul {
-		margin: 0;
-		padding: 0;
-	}
-	
-	p, pre, blockquote, ul, ol, dl, figure, table, fieldset {
-		orphans: 3;
-		widows: 3;
-	}
-	
-	.greedy-nav .visible-links li:first-child {
-		font-weight: bold;
-	}
-
-	.greedy-nav .visible-links li {
-		display: table-cell;
-		vertical-align: middle;
-	}
-	
-	.masthead__menu-item--lg {
-		padding-right: 2em;
-		font-weight: 700;
-	}
-	
-	.masthead__menu-item {
-		display: block;
-		list-style-type: none;
-		white-space: nowrap;
-	}
-	
-	nav ul li, nav ol li {
-		margin-bottom: 0;
-	}
-	
-	nav li {
-		list-style: none;
-	}
-	
-	ul li, ol li {
-		margin-bottom: 0.5em;
-	}
-	
-	.greedy-nav .hidden-links {
-		position: absolute;
-		top: 100%;
-		right: 0;
-		margin-top: 15px;
-		padding: 5px;
-		border: 1px solid #f2f3f3;
-		border-radius: 4px;
-		background: #fff;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-	}
-	
-	nav ul {
-		margin: 0;
-		padding: 0;
-	}
-	
-	p, pre, blockquote, ul, ol, dl, figure, table, fieldset {
-		orphans: 3;
-		widows: 3;
-	}
-	*, *:before, *:after {
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-	}
-	
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
     
-    .page__footer {
-		clear: both;
-		float: left;
-		margin-left: 0;
-		margin-right: 0;
-		width: 100%;
-		clear: both;
-		position: absolute;
-		bottom: 0em;
-		height: auto;
-		margin-top: 3em;
-		color: #9ba1a6;
-		-webkit-animation: intro 0.3s both;
-		animation: intro 0.3s both;
-		-webkit-animation-delay: 0.45s;
-		animation-delay: 0.45s;
-		background-color: #f2f3f3;
-		border-top: 1px solid #bdc1c4;
-	}
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px;
+    /* Main content container */
+    .main-container {
       display: flex;
-      gap: 60px;
+      margin-top: 80px; /* Header height */
+      min-height: calc(100vh - 140px); /* Viewport height minus header and footer */
+      position: relative;
     }
     
+    /* Sidebar styles */
     .sidebar {
-      width: 230px;
+      width: 280px;
+      padding: 40px 20px;
+      background-color: #fff;
+      position: fixed;
+      top: 80px; /* Header height */
+      bottom: 60px; /* Footer approximate height */
+      left: 0;
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-right: 1px solid #f0f0f0;
     }
     
     .profile-img {
@@ -267,30 +114,34 @@
       text-align: center;
       font-weight: 600;
       font-size: 22px;
+      color: #444;
     }
     
     .sidebar .position {
       text-align: center;
       font-size: 14px;
-      color: #555;
-      margin-bottom: 10px;
+      color: #666;
       line-height: 1.4;
+      margin-bottom: 10px;
     }
     
     .sidebar .location {
       display: flex;
       align-items: center;
-      justify-content: center;
       font-size: 14px;
       color: #666;
       margin: 5px 0 20px;
+    }
+    
+    .location i {
+      margin-right: 5px;
     }
     
     .contact-links {
       display: flex;
       flex-direction: column;
       width: 100%;
-      gap: 10px;
+      gap: 12px;
     }
     
     .contact-links a {
@@ -302,119 +153,202 @@
       font-size: 14px;
     }
     
+    .contact-links a:hover {
+      color: #000;
+    }
+    
     .contact-links a i {
       width: 20px;
-      margin-right: 8px;
+      margin-right: 10px;
       text-align: center;
     }
     
-    .content {
+    /* Content styles */
+    .content-wrapper {
+      margin-left: 280px; /* Sidebar width */
+      padding: 40px;
       flex: 1;
+    }
+    
+    .content {
       max-width: 800px;
+      margin: 0 auto;
     }
     
     .content h1 {
       font-size: 32px;
-      margin-top: 0;
-      margin-bottom: 20px;
-      color: #333;
+      margin-bottom: 25px;
+      color: #444;
+      font-weight: 600;
     }
     
     .content p {
       margin-bottom: 20px;
       font-size: 15px;
-    }
-    
-    .research-question {
-      font-weight: 600;
-      margin-top: 25px;
-      margin-bottom: 10px;
-    }
-    
-    .highlight {
-      font-style: italic;
-    }
-    
-    hr {
-      margin: 30px 0;
-      border: none;
-      border-top: 1px solid #eee;
+      color: #333;
+      text-align: justify;
     }
     
     .content em {
       font-style: italic;
     }
     
-    .content strong {
+    .research-question {
       font-weight: 600;
+      font-size: 16px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    
+    .numbered-item {
+      margin-bottom: 25px;
+    }
+    
+    .numbered-item .number {
+      font-weight: 600;
+      margin-right: 5px;
+    }
+    
+    /* Footer styles */
+    footer {
+      background-color: #f5f5f5;
+      padding: 20px 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      width: 100%;
+      border-top: 1px solid #e0e0e0;
+      position: relative;
+      left: 0;
+    }
+    
+    .footer-links {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+    
+    .copyright {
+      font-size: 13px;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 1024px) {
+      header {
+        padding: 15px 40px;
+      }
+      
+      .logo {
+        margin-right: 60px;
+      }
+      
+      nav {
+        gap: 30px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+      
+      .sidebar {
+        display: none;
+      }
+      
+      .content-wrapper {
+        margin-left: 0;
+        padding: 30px 20px;
+      }
+      
+      footer {
+        margin-left: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="masthead">
-	<div class="masthead__inner-wrap">
-		<div class="masthead__menu">
-			<nav id="site-nav" class="greedy-nav"> 
-				<button class="hidden" count="0">
-					<div class="navicon"></div>
-				</button>
-				<ul class="visible-links">
-					<li class="masthead__menu-item masthead__menu-item--lg"><a href="https://sasayed.github.io/">Sayed Ahmed Sayed</a></li>
-					<li class="masthead__menu-item"><a href="https://sasayed.github.io/publications/">Publications</a></li>
-					<li class="masthead__menu-item"><a href="https://sasayed.github.io/research/">Research</a></li>
-					<li class="masthead__menu-item"><a href="https://sasayed.github.io/teaching/">Teaching</a></li>
-					<li class="masthead__menu-item"><a href="https://sasayed.github.io/cv/">CV</a></li>
-				</ul>
-				<ul class="hidden-links hidden"></ul>
-			</nav>
-		</div>
-	</div>
-  </div>
-  
-  <div class="container">
+  <!-- Header -->
+  <header>
+    <div class="logo">Sayed Ahmed Sayed</div>
+    <nav>
+      <a href="#">Publications</a>
+      <a href="#">Research</a>
+      <a href="#">Teaching</a>
+      <a href="#">CV</a>
+    </nav>
+  </header>
+
+  <!-- Main container with sidebar and content -->
+  <div class="main-container">
+    <!-- Sidebar -->
     <div class="sidebar">
-      <img src="https://sasayed.github.io/Sayed.jpg" alt="Sayed Ahmed" class="profile-img">
+      <img src="Sayed.jpg" alt="Profile photo of Sayed Ahmed" class="profile-img">
       <h2>Sayed Ahmed Sayed</h2>
-      <p class="position">Big Data & AI-driven Geospatial Solutions Expert, Environment Horizons Co., <i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</p>
+      <p class="position">Big Data & AI-driven Geospatial Solutions<br>Environment Horizons Co.</p>
+      <p class="location"><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</p>
+      
       <div class="contact-links">
-        <a href="mailto:se.sayedahmed@gmail.com">✉️ Email</a>
-        <a href="https://www.researchgate.net/profile/Sayed-Sayed-14">📄 ResearchGate</a>
-        <a href="https://www.linkedin.com/in/sayedahmedgis/">🔗 LinkedIn</a>
-        <a href="https://github.com/SASayed">💻 GitHub</a>
-        <a href="https://scholar.google.com/citations?user=-fKJn5AAAAAJ&hl=en">📚 Google Scholar</a>
-       <a href="https://orcid.org/0000-0003-0513-9434">🆔 ORCID</a>
+        <a href="mailto:se.sayedahmed@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://www.researchgate.net/profile/Sayed-Sayed-14"><i class="fab fa-researchgate"></i> ResearchGate</a>
+        <a href="https://www.linkedin.com/in/sayedahmedgis/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/SASayed"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.com/citations?user=-fKJn5AAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+        <a href="https://orcid.org/0000-0003-0513-9434"><i class="fas fa-id-card"></i> ORCID</a>
       </div>
     </div>
 
-    <div class="content">
-      <h1>About me</h1>
-      <p align="justify">Welcome! I am a senior GIS developer and researcher focusing on real-time traffic flow prediction, mobility analytics, and smart urban infrastructure using big data frameworks, machine learning, and geographic information systems (GIS). I am currently a Ph.D. candidate in Computer Science with a research focus on transportation systems, and I hold a Master's and Bachelor's degree in the same field.</p>
+    <!-- Content -->
+    <div class="content-wrapper">
+      <div class="content">
+        <h1>About me</h1>
+        <p>Welcome! I am a senior GIS developer and researcher focusing on real-time traffic flow prediction, mobility analytics, and smart urban infrastructure using big data frameworks, machine learning, and geographic information systems (GIS). I am currently a Ph.D. candidate in Computer Science with a research focus on transportation systems, and I hold a Master's and Bachelor's degree in the same field.</p>
 
-      <p align="justify">My work bridges computer science and geospatial technology to address challenges in mobility, congestion, and infrastructure planning. I am particularly interested in integrating machine learning with big data platforms such as Apache Spark and Kafka to enable real-time traffic predictions that inform responsive and equitable urban transportation planning. My research is further enriched by the integration of GIS to spatially analyze and visualize mobility trends, bottlenecks, and environmental impacts of urban movement.</p>
-	  
-	  <p align="justify"><strong>My research answers three overarching questions:</strong></p>
-	  <ol>
-		  <li>
-			  <p align="justify"><strong>How can we predict and manage urban traffic more effectively?</strong><br>
-			  I design and implement machine learning models that analyze traffic data streams from multiple junctions using big data platforms. My framework, which integrates Apache Kafka with Apache Spark, enables real-time processing and forecasting of traffic conditions based on vehicle counts and time-series patterns. This work supports decision-making for traffic control systems and urban mobility planners, offering predictive insights into congestion hotspots and mobility flow.</p>
-		  </li>
+        <p>My work bridges computer science and geospatial technology to address challenges in mobility, congestion, and infrastructure planning. I am particularly interested in integrating machine learning with big data platforms such as Apache Spark and Kafka to enable real-time traffic predictions that inform responsive and equitable urban transportation planning. My research is further enriched by the integration of GIS to spatially analyze and visualize mobility trends, bottlenecks, and environmental impacts of urban movement.</p>
 
-		  <li>
-			  <p align="justify"><strong>How can real-time data improve mobility equity and accessibility?</strong><br>
-			  By combining spatial data with real-time analytics, I examine how traffic congestion and mobility inefficiencies impact access to essential services—especially for marginalized communities. I aim to develop GIS-based solutions that help identify service gaps, inform routing strategies, and promote equitable infrastructure investments across different socio-economic regions.</p>
-		  </li>
+        <p>My research answers three overarching questions:</p>
 
-		  <li>
-			  <p align="justify"><strong>How can smart systems support sustainable and healthy cities?</strong><br>
-			  I evaluate the integration of real-time mobility data with environmental indicators—such as air quality and noise levels—to study how traffic patterns correlate with exposure to pollution. My research contributes to smarter urban design by using data-driven models to optimize travel paths, reduce emissions, and foster healthier living environments through improved traffic management and land use planning.</p>
-		  </li>
-	  </ol>
+        <div class="numbered-item">
+          <p class="research-question">1. How can we predict and manage urban traffic more effectively?</p>
+          <p>I design and implement machine learning models that analyze traffic data streams from multiple junctions using big data platforms. My framework, which integrates Apache Kafka with Apache Spark, enables real-time processing and forecasting of traffic conditions based on vehicle counts and time-series patterns. This work supports decision-making for traffic control systems and urban mobility planners, offering predictive insights into congestion hotspots and mobility flow.</p>
+        </div>
 
-      <p align="justify">My contributions include the implementation of machine learning pipelines in PySpark, development of integrated GIS databases for infrastructure analysis, and the deployment of predictive systems using open-source tools. I am also actively involved in creating educational materials and GIS training programs for non-specialists.</p>
+        <div class="numbered-item">
+          <p class="research-question">2. How can real-time data improve mobility equity and accessibility?</p>
+          <p>By combining spatial data with real-time analytics, I examine how traffic congestion and mobility inefficiencies impact access to essential services—especially for marginalized communities. I aim to develop GIS-based solutions that help identify service gaps, inform routing strategies, and promote equitable infrastructure investments across different socio-economic regions.</p>
+        </div>
 
-      <p align="justify">I am currently preparing to publish a research article based on the practical part of my Ph.D., with prior publications including review papers in several high-impact, peer-reviewed Scopus-indexed journals. My work aligns with a commitment to sustainable development, inclusive mobility, and the advancement of open-source geospatial technologies.</p>
+        <div class="numbered-item">
+          <p class="research-question">3. How can smart systems support sustainable and healthy cities?</p>
+          <p>I evaluate the integration of real-time mobility data with environmental indicators—such as air quality and noise levels—to study how traffic patterns correlate with exposure to pollution. My research contributes to smarter urban design by using data-driven models to optimize travel paths, reduce emissions, and foster healthier living environments through improved traffic management and land use planning.</p>
+        </div>
+
+        <p>My contributions include the implementation of machine learning pipelines in PySpark, development of integrated GIS databases for infrastructure analysis, and the deployment of predictive systems using open-source tools. I am also actively involved in creating educational materials and GIS training programs for non-specialists.</p>
+
+        <p>I am currently preparing to publish a research article based on the practical part of my Ph.D., with prior publications including review papers in Scopus-indexed journals. My work aligns with a commitment to sustainable development, inclusive mobility, and the advancement of open-source geospatial technologies.</p>
+      </div>
     </div>
   </div>
-  <script src="https://sasayed.github.io/main.min.js"></script>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Sitemap</a>
+      <a href="https://github.com/SASayed"><i class="fab fa-github"></i> GitHub</a>
+      <a href="#"><i class="fas fa-rss"></i> Feed</a>
+    </div>
+    <div class="copyright">
+      © 2025 Sayed Ahmed Sayed. Powered by Jekyll & AcademicPages.
+    </div>
+  </footer>
 </body>
 </html>
