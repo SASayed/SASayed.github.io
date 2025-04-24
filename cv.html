@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sayed Ahmed Sayed - CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: #fff;
+      padding: 20px 100px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f0f0f0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 80px;
+    }
+    
+    .logo {
+      font-size: 18px;
+      font-weight: 500;
+      color: #777;
+      margin-right: 100px;
+    }
+    
+    nav {
+      display: flex;
+      gap: 40px;
+    }
+    
+    nav a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 16px;
+      padding-bottom: 4px;
+      position: relative;
+    }
+    
+    nav a:hover {
+      color: #333;
+    }
+    
+    nav a.active {
+      color: #333;
+      font-weight: 500;
+    }
+    
+    nav a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #555;
+      transition: width 0.3s;
+    }
+    
+    nav a:hover:after, nav a.active:after {
+      width: 100%;
+    }
+    
+    /* Main content container */
+    .main-container {
+      display: flex;
+      margin-top: 80px; /* Header height */
+      min-height: calc(100vh - 140px); /* Viewport height minus header and footer */
+      position: relative;
+    }
+    
+    /* Sidebar styles */
+    .sidebar {
+      width: 280px;
+      padding: 40px 20px;
+      background-color: transparent;
+      position: fixed;
+      top: 80px; /* Header height */
+      bottom: 60px; /* Footer approximate height */
+      left: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /*border-right: 1px solid #f0f0f0;*/
+    }
+    
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    
+    .sidebar h2 {
+      margin: 10px 0 5px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 22px;
+      color: #444;
+    }
+    
+    .sidebar .position {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    
+    .sidebar .location {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #666;
+      margin: 5px 0 20px;
+    }
+    
+    .location i {
+      margin-right: 5px;
+    }
+    
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 12px;
+    }
+    
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      padding: 6px 0;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+    }
+    
+    .contact-links a:hover {
+      color: #000;
+    }
+    
+    .contact-links a i {
+      width: 20px;
+      margin-right: 10px;
+      text-align: center;
+    }
+    
+    /* Content styles */
+    .content-wrapper {
+      /*margin-left: 260px;  Reduced from 280px to decrease space */
+      padding: 40px 30px 40px 10px; /* Reduced left padding */
+      flex: 1;
+    }
+    
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .content h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #444;
+      font-weight: 600;
+    }
+    
+    .content p {
+      margin-bottom: 20px;
+      font-size: 15px;
+      color: #333;
+      text-align: justify;
+    }
+    
+    .cv-download {
+      margin-bottom: 30px;
+    }
+    
+    .cv-download a {
+      color: #4b6cb7;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid #4b6cb7;
+      padding-bottom: 2px;
+      transition: all 0.3s;
+    }
+    
+    .cv-download a:hover {
+      opacity: 0.8;
+    }
+    
+    /* CV specific styles */
+    .cv-section {
+      margin-bottom: 40px;
+    }
+    
+    .cv-section h2 {
+      font-size: 24px;
+      color: #444;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .cv-item {
+      margin-bottom: 25px;
+    }
+    
+    .cv-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .cv-item-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    
+    .cv-item-title {
+      font-weight: 600;
+      font-size: 16px;
+      color: #333;
+    }
+    
+    .cv-item-institution {
+      font-weight: 500;
+      font-size: 16px;
+      color: #555;
+    }
+    
+    .cv-item-date {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .cv-item-description {
+      text-align: justify;
+      font-size: 15px;
+      color: #444;
+    }
+    
+    .cv-item-description ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    
+    .cv-item-description li {
+      margin-bottom: 8px;
+    }
+    
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .skill-category {
+      flex: 1;
+      min-width: 280px;
+    }
+    
+    .skill-category h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    
+    .skill-category ul {
+      padding-left: 20px;
+    }
+    
+    .skill-category li {
+      margin-bottom: 6px;
+      text-align: left;
+    }
+    
+    .languages-table {
+      width: 50%;
+      margin-top: 10px;
+    }
+    
+    .languages-table td {
+      padding: 5px 10px;
+    }
+    
+    /* Footer styles */
+    footer {
+      background-color: #f5f5f5;
+      padding: 20px 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      width: 100%;
+      border-top: 1px solid #e0e0e0;
+      position: relative;
+      left: 0;
+    }
+    
+    .footer-links {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+    
+    .copyright {
+      font-size: 13px;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 1024px) {
+      header {
+        padding: 15px 40px;
+      }
+      
+      .logo {
+        margin-right: 60px;
+      }
+      
+      nav {
+        gap: 30px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+      
+      .sidebar {
+        display: none;
+      }
+      
+      .content-wrapper {
+        margin-left: 0;
+        padding: 30px 20px;
+      }
+      
+      footer {
+        margin-left: 0;
+      }
+      
+      .cv-item-header {
+        flex-direction: column;
+      }
+      
+      .skills-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Sayed Ahmed Sayed</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="cv.html" class="active">CV</a>
+    </nav>
+  </header>
+
+  <!-- Main container with sidebar and content -->
+  <div class="main-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <img src="Sayed.jpg" alt="Profile photo of Sayed Ahmed" class="profile-img">
+      <h2>Sayed Ahmed Sayed</h2>
+      <p class="position">Big Data & AI-driven Geospatial Solutions<br>Environment Horizons Co.</p>
+      <p class="location"><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</p>
+      
+      <div class="contact-links">
+        <a href="mailto:se.sayedahmed@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://www.researchgate.net/profile/Sayed-Sayed-14"><i class="fab fa-researchgate"></i> ResearchGate</a>
+        <a href="https://www.linkedin.com/in/sayedahmedgis/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/SASayed"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.com/citations?user=-fKJn5AAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+        <a href="https://orcid.org/0000-0003-0513-9434"><i class="fas fa-id-card"></i> ORCID</a>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+      <div class="content">
+        <h1>CV</h1>
+        
+        <div class="cv-download">
+          <p>A detailed version of the CV is available <a href="sayed_ahmed_sayed_cv.pdf" target="_blank">here</a>.</p>
+        </div>
+        
+        <div class="cv-section">
+          <h2>Summary</h2>
+          <p>Senior GIS Developer with over 10 years of experience in open-source GIS development, spatial database design, and geospatial analytics. Proven expertise in building scalable GIS applications, integrating big data and machine learning for geospatial analysis, and developing interactive geo-visualization solutions. Proficient in Python, Java, R, and modern web frameworks. Skilled in enterprise GIS architecture, spatial data processing, and Web GIS development (Leaflet, OpenLayers, GeoServer). Adept at leading GIS projects, optimizing workflows, and delivering innovative geospatial solutions for decision-making.</p>
+        </div>
+        
+        <div class="cv-section">
+          <h2>Education</h2>
+          
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <div class="cv-item-title">Doctor of Philosophy, Computer Science</div>
+              <div class="cv-item-date">03/2025</div>
+            </div>
+            <div class="cv-item-institution">Faculty of Graduate Studies for Statistical Research - Cairo University - Giza, Egypt</div>
+          </div>
+          
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <div class="cv-item-title">Master of computer Science, GIS specialization</div>
+              <div class="cv-item-date">07/2019</div>
+            </div>
+            <div class="cv-item-institution">Computer Science Department, Faculty of Graduate Studies for Statistical Research - Cairo University - Giza, Egypt</div>
+          </div>
+          
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <div class="cv-item-title">Diploma, Computer Science</div>
+              <div class="cv-item-date">07/2013</div>
+            </div>
+            <div class="cv-item-institution">Faculty of Graduate Studies for Statistical Research - Cairo University - Giza, Egypt</div>
+          </div>
+          
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <div class="cv-item-title">Bachelor of Computing and Information, Department of Computer Science</div>
+              <div class="cv-item-date">07/2007</div>
+            </div>
+            <div class="cv-item-institution">Computer Science Faculty of Computer and Information - Assiut University - Assiut, Egypt</div>
+          </div>
+        </div>
+        
+        <div class="cv-section">
+          <h2>Experience</h2>
+          
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <div class="cv-item-title">Geo-Database and GIS Expert</div>
+              <div class="cv-item-date">Dec 2023 – Present</div>
+            </div>
+            <div class="cv-item-institution">Environmental Horizon Co. - Riyadh, Saudi Arabia</div>
+            <div class="cv-item-description">
+              <ul>
+                <li>Preparing GIS Data for maps</li>
+                <li>Designed and developed spatial databases, optimizing GIS data management and map production.</li>
+                <li>Remotely Sensed data Analysis, Building Raster GeoDatabase, Data reporting and presentation</li>
+                <li>Performing statistical analysis for data in Excel and Python</li>
+                <li>Creating thematic maps to present, organize and categorize survey data</li>
+                <li>Compiling data from satellite imagery, survey data and aerial photographs to produce maps and charts</li>
+                <li>Updating maps and charts using information gained by technological advancements</li>
+                <li>Designed and deployed interactive GIS dashboards using Mapbox, Carto, and Power BI, improving geospatial data visualization for decision-makers.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <div class="cv-item-title">Systems and Databases Analyst</div>
+              <div class="cv-item-date">Jul 2015 to Dec 2023</div>
+            </div>
+            <div class="cv-item-institution">National Authority for Remote Sensing and Space Sciences - Cairo, Egypt</div>
+            <div class="cv-item-description">
+              <ul>
+                <li>Assisted with continuous improvement initiatives, applying data findings to address underperforming areas</li>
+                <li>Analyzed business processes, systems and data to identify opportunities for enhancement and efficiency</li>
+                <li>Automated tasks to increase efficiency and reduce department workload</li>
+                <li>Analyzed complex data sets and studied impacts on business growth and operational efficiency</li>
+                <li>Applied principles of user-centered design to enhance the usability and user experience of digital interfaces</li>
+                <li>Sketched and diagrammed design concepts to share vision and collected feedback</li>
+                <li>Built design mockups and prototypes with Adobe Creative Cloud, Crello and PaintShop Pro</li>
+                <li>Developed innovative, robust design solutions through collaboration with technical teams</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <div class="cv-item-title">Senior GIS Developer</div>
+              <div class="cv-item-date">Nov 2010 to Jul 2015</div>
+            </div>
+            <div class="cv-item-institution">National Authority for Remote Sensing and Space Sciences - Cairo, Egypt</div>
+            <div class="cv-item-description">
+              <ul>
+                <li>Led GIS data acquisition, conversion, and integration processes, optimizing data management workflows for spatial analytics</li>
+                <li>Applied machine learning techniques to analyze spatial patterns and predict trends in environmental and social datasets</li>
+                <li>Developed and maintained web-based GIS applications using Python, Django, and JavaScript libraries such as Leaflet and OpenLayers</li>
+                <li>Designed and implemented spatial databases using PostgreSQL/PostGIS to manage and analyze geospatial data</li>
+                <li>Integrated GIS functionalities with web services and APIs, enabling real-time data visualization and analysis</li>
+                <li>Participated in the full software development lifecycle, from requirements gathering and design to testing, deployment, and maintenance</li>
+                <li>Conducted spatial data analysis to support decision-making processes in urban planning, environmental management, and infrastructure development</li>
+                <li>Directed a team of GIS analysts in developing a scalable GIS infrastructure, enhancing geospatial data accessibility and efficiency at the national level</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cv-section">
+          <h2>Skills</h2>
+          <div class="skills-container">
+            <div class="skill-category">
+              <h3>Programming & Automation</h3>
+              <ul>
+                <li>Python (GeoPandas, Fiona, Shapely, GDAL, ArcPy)</li>
+                <li>Java (Spring MVC, JSF, Struts)</li>
+                <li>JavaScript (Leaflet, OpenLayers, Mapbox)</li>
+                <li>SQL (PostGIS, PostgreSQL)</li>
+              </ul>
+            </div>
+            
+            <div class="skill-category">
+              <h3>GIS & Remote Sensing Tools</h3>
+              <ul>
+                <li>QGIS, GRASS GIS, GDAL/OGR</li>
+                <li>ArcGIS, GeoServer</li>
+              </ul>
+            </div>
+            
+            <div class="skill-category">
+              <h3>Web GIS Development</h3>
+              <ul>
+                <li>GeoDjango, Flask, FastAPI</li>
+                <li>Leaflet.js, OpenLayers, Mapbox</li>
+                <li>RESTful GIS APIs (WMS, WFS, WMTS)</li>
+              </ul>
+            </div>
+            
+            <div class="skill-category">
+              <h3>Big Data & Cloud GIS</h3>
+              <ul>
+                <li>Apache Spark, Apache Kafka</li>
+                <li>Google Earth Engine, Hadoop</li>
+              </ul>
+            </div>
+            
+            <div class="skill-category">
+              <h3>Geo-Visualization & BI</h3>
+              <ul>
+                <li>Power BI, ArcGIS for Power BI</li>
+                <li>Mapbox, GeoJSON</li>
+              </ul>
+            </div>
+            
+            <div class="skill-category">
+              <h3>Spatial Analysis & ML</h3>
+              <ul>
+                <li>Google Earth Engine</li>
+                <li>AI-driven spatial modeling</li>
+                <li>Raster Analysis</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cv-section">
+          <h2>Certifications</h2>
+          <ul>
+            <li>Data Analysis Using Excel and Power BI</li>
+            <li>Python in ArcGIS Course Certificate (ESRI)</li>
+            <li>Using Databases with Python</li>
+            <li>Python Data Structures</li>
+            <li>Retrieving, Processing, and Visualizing Data with Python</li>
+            <li>Using Python to Access Web Data</li>
+            <li>GUI Development Using Python</li>
+            <li>Java Development Course - Complete Track (ITI)</li>
+          </ul>
+        </div>
+        
+        <div class="cv-section">
+          <h2>Languages</h2>
+          <table class="languages-table">
+            <tr>
+              <td>Arabic</td>
+              <td>Native</td>
+            </tr>
+            <tr>
+              <td>English</td>
+              <td>Fluent</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Sitemap</a>
+      <a href="https://github.com/SASayed"><i class="fab fa-github"></i> GitHub</a>
+      <a href="#"><i class="fas fa-rss"></i> Feed</a>
+    </div>
+    <div class="copyright">
+      © 2025 Sayed Ahmed Sayed. Powered by Jekyll & AcademicPages.
+    </div>
+  </footer>
+</body>
+</html>
