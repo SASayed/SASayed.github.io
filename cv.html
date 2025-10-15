@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV - Sayed Ahmed</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -13,646 +13,1081 @@
       box-sizing: border-box;
     }
     
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #7c3aed;
+      --accent-color: #06b6d4;
+      --dark-bg: #0f172a;
+      --light-bg: #f8fafc;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
     body {
       font-family: 'Inter', sans-serif;
-      color: #333;
+      color: var(--text-primary);
       line-height: 1.6;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 0;
+      background-color: var(--light-bg);
+      overflow-x: hidden;
     }
     
     /* Header styles */
     header {
-      background-color: #fff;
-      padding: 20px 100px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 80px;
       display: flex;
       align-items: center;
-      border-bottom: 1px solid #f0f0f0;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
+      z-index: 1000;
       height: 80px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      padding: 15px 80px;
+      height: 70px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
     }
     
     .logo {
-      font-size: 18px;
-      font-weight: 500;
-      color: #777;
-      margin-right: 100px;
+      font-size: 20px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: all 0.3s ease;
+    }
+    
+    .logo a {
+      text-decoration: none;
+      color: inherit;
     }
     
     nav {
       display: flex;
       gap: 40px;
+      align-items: center;
     }
     
     nav a {
-      color: #555;
+      color: var(--text-secondary);
       text-decoration: none;
-      font-weight: 400;
-      font-size: 16px;
-      padding-bottom: 4px;
-      position: relative;
-    }
-    
-    nav a:hover {
-      color: #333;
-    }
-    
-    nav a.active {
-      color: #333;
       font-weight: 500;
+      font-size: 15px;
+      padding: 8px 0;
+      position: relative;
+      transition: color 0.3s ease;
     }
     
-    nav a:after {
+    nav a:hover, nav a.active {
+      color: var(--primary-color);
+    }
+    
+    nav a::after {
       content: '';
       position: absolute;
       width: 0;
       height: 2px;
       bottom: 0;
-      left: 0;
-      background-color: #555;
-      transition: width 0.3s;
+      left: 50%;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
     }
     
-    nav a:hover:after, nav a.active:after {
+    nav a:hover::after, nav a.active::after {
       width: 100%;
     }
     
-    /* Main content container */
-    .main-container {
-      display: flex;
-      margin-top: 80px; /* Header height */
-      min-height: calc(100vh - 140px); /* Viewport height minus header and footer */
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      min-height: 300px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 80px;
     }
     
-    /* Sidebar styles */
-    .sidebar {
-      width: 280px;
-      padding: 40px 20px;
-      background-color: transparent;
-      position: fixed;
-      top: 80px; /* Header height */
-      bottom: 60px; /* Footer approximate height */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
       left: 0;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      /*border-right: 1px solid #f0f0f0;*/
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" /></linearGradient></defs><path d="M0,300 Q300,100 600,300 T1200,300 L1200,600 L0,600 Z" fill="url(%23grad)"/></svg>');
+      background-size: cover;
+      opacity: 0.3;
+      animation: wave 20s linear infinite;
     }
     
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
+    @keyframes wave {
+      0% { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(-25px) translateY(-25px); }
+      100% { transform: translateX(0) translateY(0); }
     }
     
-    .sidebar h2 {
-      margin: 10px 0 5px;
+    .hero-content {
+      max-width: 1200px;
       text-align: center;
-      font-weight: 600;
-      font-size: 22px;
-      color: #444;
+      position: relative;
+      z-index: 1;
+      color: white;
     }
     
-    .sidebar .position {
-      text-align: center;
-      font-size: 14px;
-      color: #666;
-      line-height: 1.4;
-      margin-bottom: 10px;
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      animation: fadeInUp 0.8s ease;
     }
     
-    .sidebar .location {
+    .hero-content .subtitle {
+      font-size: 20px;
+      opacity: 0.95;
+      font-weight: 300;
+      margin-bottom: 25px;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+    }
+    
+    .hero-actions {
       display: flex;
-      align-items: center;
-      font-size: 14px;
-      color: #666;
-      margin: 5px 0 20px;
+      justify-content: center;
+      gap: 20px;
+      animation: fadeInUp 0.8s ease 0.4s backwards;
     }
     
-    .location i {
-      margin-right: 5px;
-    }
-    
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      gap: 12px;
-    }
-    
-    .contact-links a {
-      display: flex;
-      align-items: center;
-      padding: 6px 0;
+    .hero-btn {
+      padding: 12px 28px;
+      border-radius: 8px;
       text-decoration: none;
-      color: #555;
-      font-size: 14px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
     
-    .contact-links a:hover {
-      color: #000;
+    .hero-btn.primary {
+      background: white;
+      color: var(--primary-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
     
-    .contact-links a i {
-      width: 20px;
-      margin-right: 10px;
-      text-align: center;
-    }
-
-    /* Colored icons for contact links */
-    .contact-links a .fa-envelope {
-      color: #666;
+    .hero-btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
     
-    .contact-links a .fa-researchgate {
-      color: #40ba9b;
+    .hero-btn.secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid white;
+      backdrop-filter: blur(10px);
     }
     
-    .contact-links a .fa-twitter {
-      color: #1DA1F2;
+    .hero-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
     }
     
-    .contact-links a .fa-linkedin {
-      color: #0077B5;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     
-    .contact-links a .fa-github {
-      color: #333;
-    }
-    
-    .contact-links a .fa-graduation-cap {
-      color: #4285F4;
-    }
-    
-    .contact-links a .fa-id-card {
-      color: #A6CE39;
-    }
-    
-    /* Content styles */
-    .content-wrapper {
-      /*margin-left: 260px;  Reduced from 280px to decrease space */
-      padding: 40px 30px 40px 10px; /* Reduced left padding */
-      flex: 1;
-    }
-    
-    .content {
-      max-width: 800px;
+    /* Main Content */
+    .main-content {
+      padding: 60px 80px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     
-    .content h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      color: #444;
-      font-weight: 600;
-    }
-    
-    .content p {
-      margin-bottom: 20px;
-      font-size: 15px;
-      color: #333;
-      text-align: justify;
-    }
-    
-    .cv-download {
-      margin-bottom: 30px;
-    }
-    
-    .cv-download a {
-      color: #4b6cb7;
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 2px solid #4b6cb7;
-      padding-bottom: 2px;
-      transition: all 0.3s;
-    }
-    
-    .cv-download a:hover {
-      opacity: 0.8;
-    }
-    
-    /* CV specific styles */
-    .cv-section {
+    /* Summary Section */
+    .summary-section {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
       margin-bottom: 40px;
     }
     
-    .cv-section h2 {
-      font-size: 24px;
-      color: #444;
-      margin-bottom: 15px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #eee;
+    .summary-section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     
-    .cv-item {
-      margin-bottom: 25px;
+    .summary-section h2 i {
+      font-size: 28px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
-    .cv-item:last-child {
-      margin-bottom: 0;
+    .summary-section p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
     }
     
-    .cv-item-header {
+    /* Section Title */
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .section-title i {
+      font-size: 32px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Timeline Styles */
+    .timeline {
+      position: relative;
+      padding-left: 50px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-item:hover {
+      transform: translateX(10px);
+      box-shadow: var(--card-shadow-hover);
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 35px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: white;
+      border: 4px solid var(--primary-color);
+      box-shadow: 0 0 0 4px white;
+    }
+    
+    .timeline-header {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .timeline-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
       margin-bottom: 5px;
     }
     
-    .cv-item-title {
-      font-weight: 600;
+    .timeline-institution {
       font-size: 16px;
-      color: #333;
-    }
-    
-    .cv-item-institution {
+      color: var(--text-secondary);
       font-weight: 500;
-      font-size: 16px;
-      color: #555;
     }
     
-    .cv-item-date {
+    .timeline-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+      border-radius: 20px;
       font-size: 14px;
-      color: #666;
+      font-weight: 500;
+      color: var(--primary-color);
+      border: 1px solid rgba(37, 99, 235, 0.2);
     }
     
-    .cv-item-description {
-      text-align: justify;
+    .timeline-description {
+      color: var(--text-secondary);
+      line-height: 1.8;
       font-size: 15px;
-      color: #444;
     }
     
-    .cv-item-description ul {
+    .timeline-description ul {
+      margin-top: 15px;
       padding-left: 20px;
-      margin-top: 10px;
     }
     
-    .cv-item-description li {
-      margin-bottom: 8px;
+    .timeline-description li {
+      margin-bottom: 10px;
+      position: relative;
     }
     
-    .skills-container {
+    .timeline-description li::marker {
+      color: var(--primary-color);
+    }
+    
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    
+    .skill-card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--card-shadow-hover);
+    }
+    
+    .skill-card h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: var(--text-primary);
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .skill-card h3 i {
+      font-size: 22px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .skill-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    
+    .skill-item i {
+      color: var(--primary-color);
+      font-size: 12px;
+    }
+    
+    /* Certifications */
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .certification-card {
+      background: white;
+      padding: 20px 25px;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .certification-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--card-shadow-hover);
+    }
+    
+    .certification-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .certification-icon i {
+      font-size: 24px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .certification-text {
+      font-size: 15px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    
+    /* Languages Section */
+    .languages-section {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 40px;
+    }
+    
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    
+    .language-item {
+      display: flex;
+      align-items: center;
       gap: 20px;
     }
     
-    .skill-category {
-      flex: 1;
-      min-width: 280px;
+    .language-flag {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
     }
     
-    .skill-category h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #444;
+    .language-details h4 {
+      font-size: 18px;
+      color: var(--text-primary);
+      margin-bottom: 5px;
     }
     
-    .skill-category ul {
-      padding-left: 20px;
-    }
-    
-    .skill-category li {
-      margin-bottom: 6px;
-      text-align: left;
-    }
-    
-    .languages-table {
-      width: 50%;
-      margin-top: 10px;
-    }
-    
-    .languages-table td {
-      padding: 5px 10px;
-    }
-    
-    /* Footer styles */
-    footer {
-      background-color: #f5f5f5;
-      padding: 20px 40px;
-      text-align: center;
+    .language-level {
       font-size: 14px;
-      color: #777;
-      width: 100%;
-      border-top: 1px solid #e0e0e0;
-      position: relative;
-      left: 0;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark-bg);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 50px 80px 30px;
+    }
+    
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-section h4 {
+      color: white;
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .footer-section p {
+      line-height: 1.8;
+      font-size: 14px;
     }
     
     .footer-links {
-      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
     
     .footer-links a {
-      color: #666;
+      color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
-      margin: 0 10px;
+      transition: all 0.3s ease;
+      font-size: 14px;
     }
     
     .footer-links a:hover {
-      text-decoration: underline;
+      color: white;
+      padding-left: 5px;
     }
     
-    .copyright {
-      font-size: 13px;
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
     }
     
-    /* Mobile responsiveness */
-    @media (max-width: 1024px) {
-      header {
-        padding: 15px 40px;
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 30px;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      header, .hero, .main-content, footer {
+        padding-left: 40px;
+        padding-right: 40px;
       }
       
-      .logo {
-        margin-right: 60px;
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+    }
+    
+    @media (max-width: 968px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
       }
       
-      nav {
-        gap: 30px;
+      .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
     
     @media (max-width: 768px) {
-      header {
-        padding: 15px 20px;
+      header, .hero, .main-content, footer {
+        padding-left: 20px;
+        padding-right: 20px;
       }
       
-      .sidebar {
+      header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      
+      .hero {
+        padding: 40px 20px;
+      }
+      
+      .hero-content h1 {
+        font-size: 32px;
+      }
+      
+      .hero-content .subtitle {
+        font-size: 16px;
+      }
+      
+      .hero-actions {
+        flex-direction: column;
+      }
+      
+      .hero-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      nav {
         display: none;
       }
       
-      .content-wrapper {
-        margin-left: 0;
-        padding: 30px 20px;
+      .section-title {
+        font-size: 26px;
       }
       
-      footer {
-        margin-left: 0;
+      .timeline {
+        padding-left: 30px;
       }
       
-      .cv-item-header {
-        flex-direction: column;
+      .timeline::before {
+        left: 10px;
       }
       
-      .skills-container {
-        flex-direction: column;
+      .timeline-item::before {
+        left: -26px;
+      }
+      
+      .skills-grid,
+      .certifications-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
   <!-- Header -->
-  <header>
-    <div class="logo"><a style="text-decoration: none;" href="https://sasayed.github.io/">Sayed Ahmed</a></div>
+  <header id="header">
+    <div class="logo"><a href="https://sasayed.github.io/">Sayed Ahmed</a></div>
     <nav>
+      <a href="https://sasayed.github.io/">Home</a>
       <a href="https://sasayed.github.io/publications">Publications</a>
-      <a href="#">Research</a>
-      <a href="#">Teaching</a>
+      <a href="https://sasayed.github.io/#research">Research</a>
       <a href="#" class="active">CV</a>
+      <a href="https://sasayed.github.io/#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Main container with sidebar and content -->
-  <div class="main-container">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <img src="Sayed.jpg" alt="Sayed Ahmed" class="profile-img">
-      <h2>Sayed Ahmed</h2>
-      <p class="position">Big Data & AI-driven Geospatial Solutions<br>Environment Horizons Co.</p>
-      <p class="location"><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</p>
-      
-      <div class="contact-links">
-        <a href="mailto:se.sayedahmed@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-        <a href="https://www.researchgate.net/profile/Sayed-Sayed-14"><i class="fab fa-researchgate"></i> ResearchGate</a>
-        <a href="https://x.com/SayedAhmed86/"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a>
-        <a href="https://www.linkedin.com/in/sayedahmedgis/"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com/SASayed"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://scholar.google.com/citations?user=-fKJn5AAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-        <a href="https://orcid.org/0000-0003-0513-9434"><i class="fas fa-id-card"></i> ORCID</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Curriculum Vitae</h1>
+      <p class="subtitle">10+ Years of GIS Development, Data Science, and Geospatial Innovation</p>
+      <div class="hero-actions">
+        <a href="Sayed_Ahmed_Sayed_CV_Senior_GIS_Developer.pdf" target="_blank" class="hero-btn primary">
+          <i class="fas fa-download"></i> Download Full CV
+        </a>
+        <a href="https://sasayed.github.io/#contact" class="hero-btn secondary">
+          <i class="fas fa-envelope"></i> Contact Me
+        </a>
       </div>
     </div>
+  </section>
 
-    <!-- Content -->
-    <div class="content-wrapper">
-      <div class="content">
-        <h1>CV</h1>
-        
-        <div class="cv-download">
-          <p>A detailed version of the CV is available <a href="Sayed_Ahmed_Sayed_CV_Senior_GIS_Developer.pdf" target="_blank">here</a>.</p>
-        </div>
-        
-        <div class="cv-section">
-          <h2>Summary</h2>
-          <p>Senior GIS Developer with over 10 years of experience in open-source GIS development, spatial database design, and geospatial analytics. Proven expertise in building scalable GIS applications, integrating big data and machine learning for geospatial analysis, and developing interactive geo-visualization solutions. Proficient in Python, Java, R, and modern web frameworks. Skilled in enterprise GIS architecture, spatial data processing, and Web GIS development (Leaflet, OpenLayers, GeoServer). Adept at leading GIS projects, optimizing workflows, and delivering innovative geospatial solutions for decision-making.</p>
-        </div>
-        
-        <div class="cv-section">
-          <h2>Education</h2>
-          
-          <div class="cv-item">
-            <div class="cv-item-header">
-              <div class="cv-item-title">Doctor of Philosophy, Computer Science</div>
-              <div class="cv-item-date">03/2025</div>
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Summary Section -->
+    <section class="summary-section fade-in">
+      <h2><i class="fas fa-user-circle"></i> Professional Summary</h2>
+      <p>Senior GIS Developer with over 10 years of experience in open-source GIS development, spatial database design, and geospatial analytics. Proven expertise in building scalable GIS applications, integrating big data and machine learning for geospatial analysis, and developing interactive geo-visualization solutions. Proficient in Python, Java, R, and modern web frameworks. Skilled in enterprise GIS architecture, spatial data processing, and Web GIS development (Leaflet, OpenLayers, GeoServer). Adept at leading GIS projects, optimizing workflows, and delivering innovative geospatial solutions for decision-making.</p>
+    </section>
+
+    <!-- Education Section -->
+    <section class="fade-in">
+      <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-title">Doctor of Philosophy, Computer Science</div>
+              <div class="timeline-institution">Faculty of Graduate Studies for Statistical Research - Cairo University</div>
             </div>
-            <div class="cv-item-institution">Faculty of Graduate Studies for Statistical Research - Cairo University - Giza, Egypt</div>
+            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> March 2025</span>
           </div>
-          
-          <div class="cv-item">
-            <div class="cv-item-header">
-              <div class="cv-item-title">Master of computer Science, GIS specialization</div>
-              <div class="cv-item-date">07/2019</div>
-            </div>
-            <div class="cv-item-institution">Computer Science Department, Faculty of Graduate Studies for Statistical Research - Cairo University - Giza, Egypt</div>
-          </div>
-          
-          <div class="cv-item">
-            <div class="cv-item-header">
-              <div class="cv-item-title">Diploma, Computer Science</div>
-              <div class="cv-item-date">07/2013</div>
-            </div>
-            <div class="cv-item-institution">Faculty of Graduate Studies for Statistical Research - Cairo University - Giza, Egypt</div>
-          </div>
-          
-          <div class="cv-item">
-            <div class="cv-item-header">
-              <div class="cv-item-title">Bachelor of Computing and Information, Department of Computer Science</div>
-              <div class="cv-item-date">07/2007</div>
-            </div>
-            <div class="cv-item-institution">Computer Science Faculty of Computer and Information - Assiut University - Assiut, Egypt</div>
+          <div class="timeline-description">
+            Giza, Egypt
           </div>
         </div>
-        
-        <div class="cv-section">
-          <h2>Experience</h2>
-          
-          <div class="cv-item">
-            <div class="cv-item-header">
-              <div class="cv-item-title">Geo-Database and GIS Expert</div>
-              <div class="cv-item-date">Dec 2023 – Present</div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-title">Master of Computer Science, GIS Specialization</div>
+              <div class="timeline-institution">Faculty of Graduate Studies for Statistical Research - Cairo University</div>
             </div>
-            <div class="cv-item-institution">Environmental Horizon Co. - Riyadh, Saudi Arabia</div>
-            <div class="cv-item-description">
-              <ul>
-                <li>Preparing GIS Data for maps</li>
-                <li>Designed and developed spatial databases, optimizing GIS data management and map production.</li>
-                <li>Remotely Sensed data Analysis, Building Raster GeoDatabase, Data reporting and presentation</li>
-                <li>Performing statistical analysis for data in Excel and Python</li>
-                <li>Creating thematic maps to present, organize and categorize survey data</li>
-                <li>Compiling data from satellite imagery, survey data and aerial photographs to produce maps and charts</li>
-                <li>Updating maps and charts using information gained by technological advancements</li>
-                <li>Designed and deployed interactive GIS dashboards using Mapbox, Carto, and Power BI, improving geospatial data visualization for decision-makers.</li>
-              </ul>
-            </div>
+            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> July 2019</span>
           </div>
-          
-          <div class="cv-item">
-            <div class="cv-item-header">
-              <div class="cv-item-title">Systems and Databases Analyst</div>
-              <div class="cv-item-date">Jul 2015 to Dec 2023</div>
-            </div>
-            <div class="cv-item-institution">National Authority for Remote Sensing and Space Sciences - Cairo, Egypt</div>
-            <div class="cv-item-description">
-              <ul>
-                <li>Assisted with continuous improvement initiatives, applying data findings to address underperforming areas</li>
-                <li>Analyzed business processes, systems and data to identify opportunities for enhancement and efficiency</li>
-                <li>Automated tasks to increase efficiency and reduce department workload</li>
-                <li>Analyzed complex data sets and studied impacts on business growth and operational efficiency</li>
-                <li>Applied principles of user-centered design to enhance the usability and user experience of digital interfaces</li>
-                <li>Sketched and diagrammed design concepts to share vision and collected feedback</li>
-                <li>Built design mockups and prototypes with Adobe Creative Cloud, Crello and PaintShop Pro</li>
-                <li>Developed innovative, robust design solutions through collaboration with technical teams</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="cv-item">
-            <div class="cv-item-header">
-              <div class="cv-item-title">Senior GIS Developer</div>
-              <div class="cv-item-date">Nov 2010 to Jul 2015</div>
-            </div>
-            <div class="cv-item-institution">National Authority for Remote Sensing and Space Sciences - Cairo, Egypt</div>
-            <div class="cv-item-description">
-              <ul>
-                <li>Led GIS data acquisition, conversion, and integration processes, optimizing data management workflows for spatial analytics</li>
-                <li>Applied machine learning techniques to analyze spatial patterns and predict trends in environmental and social datasets</li>
-                <li>Developed and maintained web-based GIS applications using Python, Django, and JavaScript libraries such as Leaflet and OpenLayers</li>
-                <li>Designed and implemented spatial databases using PostgreSQL/PostGIS to manage and analyze geospatial data</li>
-                <li>Integrated GIS functionalities with web services and APIs, enabling real-time data visualization and analysis</li>
-                <li>Participated in the full software development lifecycle, from requirements gathering and design to testing, deployment, and maintenance</li>
-                <li>Conducted spatial data analysis to support decision-making processes in urban planning, environmental management, and infrastructure development</li>
-                <li>Directed a team of GIS analysts in developing a scalable GIS infrastructure, enhancing geospatial data accessibility and efficiency at the national level</li>
-              </ul>
-            </div>
+          <div class="timeline-description">
+            Computer Science Department, Giza, Egypt
           </div>
         </div>
-        
-        <div class="cv-section">
-          <h2>Skills</h2>
-          <div class="skills-container">
-            <div class="skill-category">
-              <h3>Programming & Automation</h3>
-              <ul>
-                <li>Python (GeoPandas, Fiona, Shapely, GDAL, ArcPy)</li>
-                <li>Java (Spring MVC, JSF, Struts)</li>
-                <li>JavaScript (Leaflet, OpenLayers, Mapbox)</li>
-                <li>SQL (PostGIS, PostgreSQL)</li>
-              </ul>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-title">Diploma, Computer Science</div>
+              <div class="timeline-institution">Faculty of Graduate Studies for Statistical Research - Cairo University</div>
             </div>
-            
-            <div class="skill-category">
-              <h3>GIS & Remote Sensing Tools</h3>
-              <ul>
-                <li>QGIS, GRASS GIS, GDAL/OGR</li>
-                <li>ArcGIS, GeoServer</li>
-              </ul>
-            </div>
-            
-            <div class="skill-category">
-              <h3>Web GIS Development</h3>
-              <ul>
-                <li>GeoDjango, Flask, FastAPI</li>
-                <li>Leaflet.js, OpenLayers, Mapbox</li>
-                <li>RESTful GIS APIs (WMS, WFS, WMTS)</li>
-              </ul>
-            </div>
-            
-            <div class="skill-category">
-              <h3>Big Data & Cloud GIS</h3>
-              <ul>
-                <li>Apache Spark, Apache Kafka</li>
-                <li>Google Earth Engine, Hadoop</li>
-              </ul>
-            </div>
-            
-            <div class="skill-category">
-              <h3>Geo-Visualization & BI</h3>
-              <ul>
-                <li>Power BI, ArcGIS for Power BI</li>
-                <li>Mapbox, GeoJSON</li>
-              </ul>
-            </div>
-            
-            <div class="skill-category">
-              <h3>Spatial Analysis & ML</h3>
-              <ul>
-                <li>Google Earth Engine</li>
-                <li>AI-driven spatial modeling</li>
-                <li>Raster Analysis</li>
-              </ul>
-            </div>
+            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> July 2013</span>
+          </div>
+          <div class="timeline-description">
+            Giza, Egypt
           </div>
         </div>
-        
-        <div class="cv-section">
-          <h2>Certifications</h2>
-          <ul>
-            <li>Data Analysis Using Excel and Power BI</li>
-            <li>Python in ArcGIS Course Certificate (ESRI)</li>
-            <li>Using Databases with Python</li>
-            <li>Python Data Structures</li>
-            <li>Retrieving, Processing, and Visualizing Data with Python</li>
-            <li>Using Python to Access Web Data</li>
-            <li>GUI Development Using Python</li>
-            <li>Java Development Course - Complete Track (ITI)</li>
-          </ul>
-        </div>
-        
-        <div class="cv-section">
-          <h2>Languages</h2>
-          <table class="languages-table">
-            <tr>
-              <td>Arabic</td>
-              <td>Native</td>
-            </tr>
-            <tr>
-              <td>English</td>
-              <td>Fluent</td>
-            </tr>
-          </table>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-title">Bachelor of Computing and Information</div>
+              <div class="timeline-institution">Faculty of Computer and Information - Assiut University</div>
+            </div>
+            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> July 2007</span>
+          </div>
+          <div class="timeline-description">
+            Department of Computer Science, Assiut, Egypt
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="fade-in">
+      <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-title">Geo-Database and GIS Expert</div>
+              <div class="timeline-institution">Environmental Horizon Co. - Riyadh, Saudi Arabia</div>
+            </div>
+            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Dec 2023 – Present</span>
+          </div>
+          <div class="timeline-description">
+            <ul>
+              <li>Preparing GIS Data for maps and designing spatial databases, optimizing GIS data management and map production</li>
+              <li>Remotely Sensed data Analysis, Building Raster GeoDatabase, Data reporting and presentation</li>
+              <li>Performing statistical analysis for data in Excel and Python</li>
+              <li>Creating thematic maps to present, organize and categorize survey data</li>
+              <li>Compiling data from satellite imagery, survey data and aerial photographs to produce maps and charts</li>
+              <li>Updating maps and charts using information gained by technological advancements</li>
+              <li>Designed and deployed interactive GIS dashboards using Mapbox, Carto, and Power BI, improving geospatial data visualization for decision-makers</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-title">Systems and Databases Analyst</div>
+              <div class="timeline-institution">National Authority for Remote Sensing and Space Sciences - Cairo, Egypt</div>
+            </div>
+            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Jul 2015 – Dec 2023</span>
+          </div>
+          <div class="timeline-description">
+            <ul>
+              <li>Assisted with continuous improvement initiatives, applying data findings to address underperforming areas</li>
+              <li>Analyzed business processes, systems and data to identify opportunities for enhancement and efficiency</li>
+              <li>Automated tasks to increase efficiency and reduce department workload</li>
+              <li>Analyzed complex data sets and studied impacts on business growth and operational efficiency</li>
+              <li>Applied principles of user-centered design to enhance the usability and user experience of digital interfaces</li>
+              <li>Sketched and diagrammed design concepts to share vision and collected feedback</li>
+              <li>Built design mockups and prototypes with Adobe Creative Cloud, Crello and PaintShop Pro</li>
+              <li>Developed innovative, robust design solutions through collaboration with technical teams</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-title">Senior GIS Developer</div>
+              <div class="timeline-institution">National Authority for Remote Sensing and Space Sciences - Cairo, Egypt</div>
+            </div>
+            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Nov 2010 – Jul 2015</span>
+          </div>
+          <div class="timeline-description">
+            <ul>
+              <li>Led GIS data acquisition, conversion, and integration processes, optimizing data management workflows for spatial analytics</li>
+              <li>Applied machine learning techniques to analyze spatial patterns and predict trends in environmental and social datasets</li>
+              <li>Developed and maintained web-based GIS applications using Python, Django, and JavaScript libraries such as Leaflet and OpenLayers</li>
+              <li>Designed and implemented spatial databases using PostgreSQL/PostGIS to manage and analyze geospatial data</li>
+              <li>Integrated GIS functionalities with web services and APIs, enabling real-time data visualization and analysis</li>
+              <li>Participated in the full software development lifecycle, from requirements gathering and design to testing, deployment, and maintenance</li>
+              <li>Conducted spatial data analysis to support decision-making processes in urban planning, environmental management, and infrastructure development</li>
+              <li>Directed a team of GIS analysts in developing a scalable GIS infrastructure, enhancing geospatial data accessibility and efficiency at the national level</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="fade-in">
+      <h2 class="section-title"><i class="fas fa-code"></i> Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3><i class="fas fa-laptop-code"></i> Programming & Automation</h3>
+          <div class="skill-items">
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Python (GeoPandas, Fiona, Shapely, GDAL, ArcPy)</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Java (Spring MVC, JSF, Struts)</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> JavaScript (Leaflet, OpenLayers, Mapbox)</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> SQL (PostGIS, PostgreSQL)</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3><i class="fas fa-map-marked-alt"></i> GIS & Remote Sensing</h3>
+          <div class="skill-items">
+            <div class="skill-item"><i class="fas fa-check-circle"></i> QGIS, GRASS GIS, GDAL/OGR</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> ArcGIS, GeoServer</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Remote Sensing & Spatial Analysis</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3><i class="fas fa-globe"></i> Web GIS Development</h3>
+          <div class="skill-items">
+            <div class="skill-item"><i class="fas fa-check-circle"></i> GeoDjango, Flask, FastAPI</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Leaflet.js, OpenLayers, Mapbox</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> RESTful GIS APIs (WMS, WFS, WMTS)</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3><i class="fas fa-database"></i> Big Data & Cloud GIS</h3>
+          <div class="skill-items">
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Apache Spark, Apache Kafka</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Google Earth Engine, Hadoop</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Cloud Computing Platforms</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3><i class="fas fa-chart-line"></i> Geo-Visualization & BI</h3>
+          <div class="skill-items">
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Power BI, ArcGIS for Power BI</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Mapbox, GeoJSON</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Interactive Dashboards</div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3><i class="fas fa-brain"></i> Spatial Analysis & ML</h3>
+          <div class="skill-items">
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Google Earth Engine</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> AI-driven Spatial Modeling</div>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> Raster & Vector Analysis</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="fade-in">
+      <h2 class="section-title"><i class="fas fa-certificate"></i> Certifications</h2>
+      <div class="certifications-grid">
+        <div class="certification-card">
+          <div class="certification-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div class="certification-text">Data Analysis Using Excel and Power BI</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="certification-icon">
+            <i class="fas fa-map"></i>
+          </div>
+          <div class="certification-text">Python in ArcGIS Course Certificate (ESRI)</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="certification-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <div class="certification-text">Using Databases with Python</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="certification-icon">
+            <i class="fab fa-python"></i>
+          </div>
+          <div class="certification-text">Python Data Structures</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="certification-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="certification-text">Retrieving, Processing, and Visualizing Data with Python</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="certification-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="certification-text">Using Python to Access Web Data</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="certification-icon">
+            <i class="fas fa-desktop"></i>
+          </div>
+          <div class="certification-text">GUI Development Using Python</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="certification-icon">
+            <i class="fab fa-java"></i>
+          </div>
+          <div class="certification-text">Java Development Course - Complete Track (ITI)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="languages-section fade-in">
+      <h2 class="section-title"><i class="fas fa-language"></i> Languages</h2>
+      <div class="languages-grid">
+        <div class="language-item">
+          <div class="language-flag">🇸🇦</div>
+          <div class="language-details">
+            <h4>Arabic</h4>
+            <p class="language-level">Native Speaker</p>
+          </div>
+        </div>
+        <div class="language-item">
+          <div class="language-flag">🇬🇧</div>
+          <div class="language-details">
+            <h4>English</h4>
+            <p class="language-level">Fluent - Professional Working Proficiency</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-links">
-      <a href="#">Sitemap</a>
-      <a href="https://github.com/SASayed"><i class="fab fa-github"></i> GitHub</a>
-      <a href="#"><i class="fas fa-rss"></i> Feed</a>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Sayed Ahmed</h4>
+        <p>Senior GIS Developer & Researcher specializing in real-time traffic prediction, mobility analytics, and smart urban infrastructure. Based in Riyadh, Saudi Arabia.</p>
+        <div class="social-links">
+          <a href="mailto:se.sayedahmed@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.researchgate.net/profile/Sayed-Sayed-14"><i class="fab fa-researchgate"></i></a>
+          <a href="https://x.com/SayedAhmed86/"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/sayedahmedgis/"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/SASayed"><i class="fab fa-github"></i></a>
+          <a href="https://scholar.google.com/citations?user=-fKJn5AAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <a href="https://sasayed.github.io/">Home</a>
+          <a href="https://sasayed.github.io/publications">Publications</a>
+          <a href="https://sasayed.github.io/#research">Research</a>
+          <a href="#">CV</a>
+          <a href="https://orcid.org/0000-0003-0513-9434">ORCID</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <div class="footer-links">
+          <a href="https://github.com/SASayed"><i class="fab fa-github"></i> GitHub Projects</a>
+          <a href="https://scholar.google.com/citations?user=-fKJn5AAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+          <a href="#"><i class="fas fa-rss"></i> Blog Feed</a>
+        </div>
+      </div>
     </div>
-    <div class="copyright">
-      © 2025 Sayed Ahmed. Powered by Jekyll & AcademicPages.
+    <div class="footer-bottom">
+      © 2025 Sayed Ahmed. All rights reserved. • Powered by passion for sustainable urban mobility.
     </div>
   </footer>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
