@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Sayed Ahmed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #7c3aed;
+      --accent-color: #06b6d4;
+      --dark-bg: #0f172a;
+      --light-bg: #f8fafc;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.6;
+      background-color: var(--light-bg);
+      overflow-x: hidden;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 80px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      padding: 15px 80px;
+      height: 70px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    }
+    
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: all 0.3s ease;
+    }
+    
+    .logo a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    nav {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 8px 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover, nav a.active {
+      color: var(--primary-color);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    nav a:hover::after, nav a.active::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      min-height: 350px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" /></linearGradient></defs><path d="M0,300 Q300,100 600,300 T1200,300 L1200,600 L0,600 Z" fill="url(%23grad)"/></svg>');
+      background-size: cover;
+      opacity: 0.3;
+      animation: wave 20s linear infinite;
+    }
+    
+    @keyframes wave {
+      0% { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(-25px) translateY(-25px); }
+      100% { transform: translateX(0) translateY(0); }
+    }
+    
+    .hero-content {
+      max-width: 1200px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+    
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      animation: fadeInUp 0.8s ease;
+    }
+    
+    .hero-content .subtitle {
+      font-size: 20px;
+      opacity: 0.95;
+      font-weight: 300;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+    }
+    
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 40px;
+      animation: fadeInUp 0.8s ease 0.4s backwards;
+    }
+    
+    .hero-stat {
+      text-align: center;
+    }
+    
+    .hero-stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .hero-stat-label {
+      font-size: 14px;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Filter Section */
+    .filter-section {
+      background: white;
+      padding: 30px 80px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 80px;
+      z-index: 100;
+    }
+    
+    .filter-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .filter-label {
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .filter-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+      padding: 10px 24px;
+      border: 2px solid #e2e8f0;
+      background: white;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .filter-btn:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+    
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      border-color: transparent;
+    }
+    
+    .filter-btn .count {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+    
+    .filter-btn.active .count {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Projects Section */
+    .projects-section {
+      padding: 60px 80px;
+      background: var(--light-bg);
+    }
+    
+    .projects-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 30px;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .project-card.hidden {
+      display: none;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--card-shadow-hover);
+    }
+    
+    .project-image {
+      width: 100%;
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+    }
+    
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+    
+    .project-category-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary-color);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-content {
+      padding: 25px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .project-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    
+    .project-description {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    
+    .project-technologies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .tech-tag {
+      padding: 5px 12px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(124, 58, 237, 0.08));
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--primary-color);
+      border: 1px solid rgba(37, 99, 235, 0.15);
+    }
+    
+    .project-footer {
+      display: flex;
+      gap: 10px;
+      padding-top: 20px;
+      border-top: 1px solid #f1f5f9;
+    }
+    
+    .project-btn {
+      flex: 1;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      text-align: center;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .project-btn.primary {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+    }
+    
+    .project-btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+    
+    .project-btn.secondary {
+      background: var(--light-bg);
+      color: var(--text-secondary);
+      border: 1px solid #e2e8f0;
+    }
+    
+    .project-btn.secondary:hover {
+      background: white;
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .stat-item {
+      position: relative;
+      padding: 0 20px;
+    }
+    
+    .stat-item::after {
+      content: '';
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 60%;
+      background: linear-gradient(to bottom, transparent, #e2e8f0, transparent);
+    }
+    
+    .stat-item:last-child::after {
+      display: none;
+    }
+    
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 5px;
+      display: block;
+    }
+    
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark-bg);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 50px 80px 30px;
+    }
+    
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-section h4 {
+      color: white;
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .footer-section p {
+      line-height: 1.8;
+      font-size: 14px;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 30px;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      header, .hero, .filter-section, .projects-section, footer {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+      
+      .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      }
+    }
+    
+    @media (max-width: 968px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .hero-stats {
+        flex-direction: column;
+        gap: 30px;
+      }
+      
+      .filter-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .stats-section {
+        flex-direction: column;
+      }
+      
+      .stat-item::after {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header, .hero, .filter-section, .projects-section, footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      
+      header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      
+      .hero {
+        padding: 40px 20px;
+        min-height: auto;
+      }
+      
+      .hero-content h1 {
+        font-size: 32px;
+      }
+      
+      .hero-content .subtitle {
+        font-size: 16px;
+      }
+      
+      nav {
+        display: none;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .filter-section {
+        top: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="logo"><a href="https://sasayed.github.io/">Sayed Ahmed</a></div>
+    <nav>
+      <a href="https://sasayed.github.io/">Home</a>
+	  <a href="#" class="active">Projects</a>
+      <a href="https://sasayed.github.io/publications">Publications</a>
+      <a href="https://sasayed.github.io/#research">Research</a>
+      <a href="https://sasayed.github.io/cv">CV</a>
+      <a href="https://sasayed.github.io/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Portfolio Projects</h1>
+      <p class="subtitle">Innovative GIS solutions and data-driven applications</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number">12</span>
+          <span class="hero-stat-label">Total Projects</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">4</span>
+          <span class="hero-stat-label">Categories</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">15+</span>
+          <span class="hero-stat-label">Technologies</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Section -->
+  <section class="filter-section">
+    <div class="filter-container">
+      <div class="filter-label">
+        <i class="fas fa-filter"></i>
+        Filter by Category:
+      </div>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-category="all">
+          <i class="fas fa-th"></i> All Projects <span class="count">12</span>
+        </button>
+        <button class="filter-btn" data-category="data-viz">
+          <i class="fas fa-chart-bar"></i> Data Analysis & Viz <span class="count">4</span>
+        </button>
+        <button class="filter-btn" data-category="web-gis">
+          <i class="fas fa-globe"></i> Web GIS <span class="count">5</span>
+        </button>
+        <button class="filter-btn" data-category="big-data-ai">
+          <i class="fas fa-brain"></i> Big Data & AI <span class="count">2</span>
+        </button>
+        <button class="filter-btn" data-category="mobile-gis">
+          <i class="fas fa-mobile-alt"></i> Mobile GIS <span class="count">1</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <div class="projects-container">
+      <!-- Stats Overview -->
+      <div class="stats-section fade-in">
+        <div class="stat-item">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Web GIS Apps</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Data Viz Tools</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">AI Solutions</span>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        <!-- Data Analysis & Visualization Projects -->
+        <div class="project-card fade-in" data-category="data-viz">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/667eea/ffffff?text=Traffic+Flow+Dashboard" alt="Traffic Flow Analytics Dashboard">
+            <span class="project-category-badge">Data Analysis & Viz</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Traffic Flow Analytics Dashboard</h3>
+            <p class="project-description">Interactive dashboard for real-time traffic flow analysis and visualization using Power BI and Python. Analyzes patterns across multiple junctions with predictive insights.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">Plotly</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="data-viz">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/764ba2/ffffff?text=Mobility+Analytics" alt="Urban Mobility Analytics">
+            <span class="project-category-badge">Data Analysis & Viz</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Urban Mobility Analytics Platform</h3>
+            <p class="project-description">Comprehensive platform for analyzing urban mobility patterns, congestion hotspots, and accessibility metrics using advanced data visualization techniques.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Matplotlib</span>
+              <span class="tech-tag">Seaborn</span>
+              <span class="tech-tag">GeoPandas</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="data-viz">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/06b6d4/ffffff?text=Environmental+Dashboard" alt="Environmental Impact Dashboard">
+            <span class="project-category-badge">Data Analysis & Viz</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Environmental Impact Dashboard</h3>
+            <p class="project-description">Dashboard integrating air quality, noise levels, and traffic data to assess environmental impacts of urban transportation systems.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">Tableau</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">D3.js</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="data-viz">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/2563eb/ffffff?text=Agricultural+Analytics" alt="Agricultural Data Analytics">
+            <span class="project-category-badge">Data Analysis & Viz</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Agricultural Data Analytics System</h3>
+            <p class="project-description">Advanced analytics system for crop identification and yield prediction using remote sensing data and machine learning visualization tools.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Scikit-learn</span>
+              <span class="tech-tag">Jupyter</span>
+              <span class="tech-tag">Plotly</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web GIS Development Projects -->
+        <div class="project-card fade-in" data-category="web-gis">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/667eea/ffffff?text=Interactive+Mapping" alt="Interactive Web Mapping Application">
+            <span class="project-category-badge">Web GIS Development</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Interactive Web Mapping Application</h3>
+            <p class="project-description">Full-featured web mapping application with real-time data integration, spatial queries, and interactive visualization for urban planning.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">Leaflet.js</span>
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">PostGIS</span>
+              <span class="tech-tag">GeoServer</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="web-gis">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/764ba2/ffffff?text=E-Marketing+Platform" alt="E-Marketing Site Selection Platform">
+            <span class="project-category-badge">Web GIS Development</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">E-Marketing Site Selection Platform</h3>
+            <p class="project-description">Interactive mapping platform for e-marketing site selection in Cairo and Giza, enabling client participation through collaborative GIS tools.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">OpenLayers</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="web-gis">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/06b6d4/ffffff?text=Land+Management" alt="WebGIS Decision Support System">
+            <span class="project-category-badge">Web GIS Development</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">WebGIS Decision Support System</h3>
+            <p class="project-description">Comprehensive WebGIS platform for Wadi El Natrun rural land management with decision support capabilities and spatial analysis tools.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">ArcGIS API</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">ArcGIS Server</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="web-gis">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/2563eb/ffffff?text=GIS+Archive" alt="GIS-Based Maps Archiving System">
+            <span class="project-category-badge">Web GIS Development</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">GIS-Based Maps Archiving System</h3>
+            <p class="project-description">Open-source GIS-based archiving system for hybrid learning environments, enabling map collection management and educational resource sharing.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">QGIS</span>
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Leaflet</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="web-gis">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/7c3aed/ffffff?text=Infrastructure+Dashboard" alt="Infrastructure Analysis Dashboard">
+            <span class="project-category-badge">Web GIS Development</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Infrastructure Analysis Dashboard</h3>
+            <p class="project-description">Web-based GIS dashboard for infrastructure analysis and planning, integrating multiple data sources for comprehensive urban development insights.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">Mapbox</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">MongoDB</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Big Data & AI-driven Geospatial Solutions -->
+        <div class="project-card fade-in" data-category="big-data-ai">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/667eea/ffffff?text=Real-Time+Prediction" alt="Real-Time Traffic Prediction System">
+            <span class="project-category-badge">Big Data & AI</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Real-Time Traffic Prediction System</h3>
+            <p class="project-description">ML-powered system using Apache Kafka and Spark for real-time traffic flow prediction across multiple junctions with deep learning models.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">Apache Spark</span>
+              <span class="tech-tag">Kafka</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">PySpark</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="big-data-ai">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/764ba2/ffffff?text=Remote+Sensing+AI" alt="Remote Sensing AI Analysis">
+            <span class="project-category-badge">Big Data & AI</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Remote Sensing AI Analysis Platform</h3>
+            <p class="project-description">AI-driven platform for large-scale remote sensing image analysis using deep learning for land cover classification and change detection.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">Google Earth Engine</span>
+              <span class="tech-tag">GDAL</span>
+              <span class="tech-tag">Hadoop</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile GIS -->
+        <div class="project-card fade-in" data-category="mobile-gis">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x240/06b6d4/ffffff?text=Emergency+Response" alt="Mobile Emergency Response App">
+            <span class="project-category-badge">Mobile GIS</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Mobile Emergency Response System</h3>
+            <p class="project-description">Mobile-based route network analysis application for emergency response using enhanced Dijkstra's algorithm and AHP for optimal path finding.</p>
+            <div class="project-technologies">
+              <span class="tech-tag">Android</span>
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">ArcGIS Runtime</span>
+              <span class="tech-tag">GPS</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-btn primary"><i class="fas fa-eye"></i> View Project</a>
+              <a href="#" class="project-btn secondary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Sayed Ahmed</h4>
+        <p>Senior GIS Developer & Researcher specializing in real-time traffic prediction, mobility analytics, and smart urban infrastructure. Based in Riyadh, Saudi Arabia.</p>
+        <div class="social-links">
+          <a href="mailto:se.sayedahmed@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.researchgate.net/profile/Sayed-Sayed-14"><i class="fab fa-researchgate"></i></a>
+          <a href="https://x.com/SayedAhmed86/"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/sayedahmedgis/"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/SASayed"><i class="fab fa-github"></i></a>
+          <a href="https://scholar.google.com/citations?user=-fKJn5AAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <a href="https://sasayed.github.io/">Home</a>
+          <a href="https://sasayed.github.io/publications">Publications</a>
+          <a href="https://sasayed.github.io/#research">Research</a>
+          <a href="#">Projects</a>
+          <a href="https://sasayed.github.io/cv">CV</a>
+          <a href="https://orcid.org/0000-0003-0513-9434">ORCID</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <div class="footer-links">
+          <a href="https://github.com/SASayed"><i class="fab fa-github"></i> GitHub Projects</a>
+          <a href="https://scholar.google.com/citations?user=-fKJn5AAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+          <a href="#"><i class="fas fa-rss"></i> Blog Feed</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Sayed Ahmed. All rights reserved. • Powered by passion for sustainable urban mobility.
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const category = button.getAttribute('data-category');
+
+        // Filter projects with animation
+        projectCards.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.classList.remove('hidden');
+            card.style.animation = 'fadeInUp 0.5s ease forwards';
+          } else {
+            card.style.animation = 'fadeOut 0.3s ease forwards';
+            setTimeout(() => {
+              card.classList.add('hidden');
+            }, 300);
+          }
+        });
+      });
+    });
+
+    // Add fadeOut animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Scroll animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
